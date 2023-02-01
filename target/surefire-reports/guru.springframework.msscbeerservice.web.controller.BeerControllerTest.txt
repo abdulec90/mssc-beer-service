@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: guru.springframework.msscbeerservice.web.controller.BeerControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 2, Skipped: 0, Time elapsed: 2.252 s <<< FAILURE! - in guru.springframework.msscbeerservice.web.controller.BeerControllerTest
+updateBeerById  Time elapsed: 0.697 s  <<< ERROR!
+jakarta.servlet.ServletException: Request processing failed: java.lang.NullPointerException: Cannot invoke "guru.springframework.msscbeerservice.services.BeerService.updateBeer(java.util.UUID, guru.springframework.msscbeerservice.web.model.BeerDto)" because "this.beerService" is null
+	at guru.springframework.msscbeerservice.web.controller.BeerControllerTest.updateBeerById(BeerControllerTest.java:53)
+Caused by: java.lang.NullPointerException: Cannot invoke "guru.springframework.msscbeerservice.services.BeerService.updateBeer(java.util.UUID, guru.springframework.msscbeerservice.web.model.BeerDto)" because "this.beerService" is null
+	at guru.springframework.msscbeerservice.web.controller.BeerControllerTest.updateBeerById(BeerControllerTest.java:53)
+
+saveNewBeer  Time elapsed: 0.062 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<404>
+	at guru.springframework.msscbeerservice.web.controller.BeerControllerTest.saveNewBeer(BeerControllerTest.java:45)
+
+getBeerById  Time elapsed: 0.042 s  <<< ERROR!
+jakarta.servlet.ServletException: Request processing failed: java.lang.NullPointerException: Cannot invoke "guru.springframework.msscbeerservice.services.BeerService.getById(java.util.UUID)" because "this.beerService" is null
+	at guru.springframework.msscbeerservice.web.controller.BeerControllerTest.getBeerById(BeerControllerTest.java:31)
+Caused by: java.lang.NullPointerException: Cannot invoke "guru.springframework.msscbeerservice.services.BeerService.getById(java.util.UUID)" because "this.beerService" is null
+	at guru.springframework.msscbeerservice.web.controller.BeerControllerTest.getBeerById(BeerControllerTest.java:31)
+
