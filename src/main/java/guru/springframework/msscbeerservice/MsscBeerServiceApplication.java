@@ -6,7 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@EntityScan(basePackages = "guru/springframework/msscbeerservice/domain")
+@EntityScan
+@EnableConfigurationProperties
 public class MsscBeerServiceApplication {
 
     public static void main(String[] args) {

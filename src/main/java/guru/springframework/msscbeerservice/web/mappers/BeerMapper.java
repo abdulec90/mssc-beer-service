@@ -2,19 +2,19 @@ package guru.springframework.msscbeerservice.web.mappers;
 
 import guru.springframework.msscbeerservice.domain.Beer;
 import guru.springframework.msscbeerservice.web.model.BeerDto;
+import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by jt on 2019-05-25.
  */
 @Mapper(uses = {DateMapper.class})
-@Component
+@DecoratedWith(BeerMapperDecorator.class)
 public interface BeerMapper {
 
-    BeerDto BeerToBeerDto(Beer beer);
+    BeerDto beerToBeerDto(Beer beer);
 
-    Beer BeerDtoToBeer(BeerDto dto);
+    Beer beerDtoToBeer(BeerDto dto);
+    BeerDto beerToBeerDtoWithInventory(Beer beer);
 
-    <R> R beerToBeerDto(Beer beer);
 }

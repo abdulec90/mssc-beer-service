@@ -24,12 +24,12 @@ public class BeerServiceImpl implements BeerService {
 
     @Override
     public BeerDto getById(UUID beerId) {
-        return beerMapper.BeerToBeerDto(beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
+        return beerMapper.beerToBeerDto(beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
     }
 
     @Override
     public BeerDto saveNewBeer(BeerDto beerDto) {
-        return beerMapper.BeerToBeerDto(beerRepository.save(beerMapper.BeerDtoToBeer(beerDto)));
+        return beerMapper.beerToBeerDto(beerRepository.save(beerMapper.beerDtoToBeer(beerDto)));
     }
 
     @Override
@@ -39,7 +39,7 @@ public class BeerServiceImpl implements BeerService {
         beer.setBeerStyle(beerDto.getBeerStyle().name());
         beer.setPrice(beerDto.getPrice());
         beer.setUpc(beerDto.getUpc());
-        return beerMapper.BeerToBeerDto(beerRepository.save(beer));
+        return beerMapper.beerToBeerDto(beerRepository.save(beer));
     }
 
     @Override
@@ -61,7 +61,7 @@ public class BeerServiceImpl implements BeerService {
         beerPagedList = new BeerPagedList(beerPage
                 .getContent()
                 .stream()
-                .map(beerMapper::BeerToBeerDto)
+                .map(beerMapper::beerToBeerDto)
                 .collect(Collectors.toList()),
                 PageRequest
                         .of(beerPage.getPageable().getPageNumber(),
